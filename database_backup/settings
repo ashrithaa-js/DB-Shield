@@ -1,0 +1,3 @@
+path.backups=C:\database_backup\backups     
+path.pgdump=C:\Program Files\PostgreSQL\17\bin\pg_dump.exe
+path.mysqldump = C:\Program Files\MySQL\MySQL Server 8.0\bin\mysqldump

@@ -1,0 +1,14 @@
+# Maven
+target/
+*.log
+
+# IntelliJ/IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Backup/external files
+database_backup/backups/
+*.jar
+target

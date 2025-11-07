@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.fabriciojf.postgresql.backup.gui.MainController"
+            prefWidth="600" prefHeight="400">
+
+    <top>
+        <Label text="DATABASE Backup Tool"
+               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-padding: 10; -fx-text-fill: #2b5797;"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+
+            <GridPane hgap="10" vgap="10">
+
+                <!-- Host -->
+                <Label text="Host:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="hostField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <!-- Database Name -->
+                <Label text="Database Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="dbNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <!-- Username -->
+                <Label text="Username:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="userField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <!-- Password -->
+                <Label text="Password:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="passwordField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <!-- Backup Directory -->
+                <Label text="Backup Directory:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <TextField fx:id="pathField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                <Button text="Browse" fx:id="browseBtn" onAction="#onBrowse" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+
+                <!-- Label -->
+                <Label text="Label:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                <TextField fx:id="labelField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+                <!-- Database Type -->
+                <Label text="Database Type:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="dbTypeCombo" GridPane.rowIndex="6" GridPane.columnIndex="1">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="postgresql"/>
+                            <String fx:value="mysql"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Start Backup" fx:id="backupBtn" onAction="#onBackup"
+                        style="-fx-background-color: #2b5797; -fx-text-fill: white;"/>
+                <Button text="View Log" fx:id="logBtn" onAction="#onViewLog"/>
+            </HBox>
+
+            <TextArea fx:id="outputArea" prefRowCount="8" wrapText="true"/>
+        </VBox>
+    </center>
+
+</BorderPane>
